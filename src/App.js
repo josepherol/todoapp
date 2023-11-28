@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { MainProvider } from "./MainContext";
+import CreateTask from "./CreateTask";
+import SelectCategory from "./SelectCategory";
+import DisplayTasks from "./DisplayTasks";
+import Filter from "./Filter";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainProvider>
+      <div className="container">
+        <h1 className="my-3 text-center">To Do App</h1>
+        <div className="row ">
+          <div className="col-6 mx-auto">
+            <CreateTask />
+            <SelectCategory />
+            <DisplayTasks />
+          </div>
+        </div>
+      </div>
+      <Filter />
+    </MainProvider>
   );
 }
 
